@@ -79,12 +79,11 @@ export default function ResumeBuilder() {
           </p>
         </div>
 
-        {showAISection && (
-          <GenAIForm
-            onParseSuccess={handleParseSuccess}
-            onClose={() => setShowAISection(false)}
-          />
-        )}
+        <GenAIForm
+          open={showAISection}
+          onOpenChange={setShowAISection}
+          onParseSuccess={handleParseSuccess}
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           <ResumeForm

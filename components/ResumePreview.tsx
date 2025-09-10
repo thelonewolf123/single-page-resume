@@ -13,6 +13,7 @@ import {
   Printer
 } from "lucide-react";
 import type { ResumeData } from "@/lib/resume-schema";
+import Image from "next/image";
 
 interface ResumePreviewProps {
   data: ResumeData;
@@ -87,8 +88,18 @@ export function ResumePreview({ data, onPrint }: ResumePreviewProps) {
                   )}
                 </div>
               </div>
-              <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center ml-6">
-                <span className="text-gray-500 text-xs">Photo</span>
+              <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center ml-6 overflow-hidden">
+                {data.personalInfo?.profileImage ? (
+                  <Image
+                    src={data.personalInfo.profileImage}
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                    width={250}
+                    height={250}
+                  />
+                ) : (
+                  <span className="text-gray-500 text-xs">Photo</span>
+                )}
               </div>
             </div>
 
