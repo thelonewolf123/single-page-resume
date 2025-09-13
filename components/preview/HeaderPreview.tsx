@@ -47,7 +47,7 @@ export default function HeaderPreview({ data }: Props) {
               className="flex items-center gap-1 hover:text-blue-600 transition-colors"
             >
               <Linkedin className="h-4 w-4" />
-              LinkedIn
+              {data.personalInfo.linkedin}
             </Link>
           )}
           {data.personalInfo?.github && (
@@ -58,7 +58,7 @@ export default function HeaderPreview({ data }: Props) {
               className="flex items-center gap-1 hover:text-blue-600 transition-colors"
             >
               <Github className="h-4 w-4" />
-              GitHub
+              {data.personalInfo.github}
             </Link>
           )}
           {data.personalInfo?.website && (
@@ -69,7 +69,7 @@ export default function HeaderPreview({ data }: Props) {
               className="flex items-center gap-1 hover:text-blue-600 transition-colors"
             >
               <Globe className="h-4 w-4" />
-              Website
+              {data.personalInfo.website}
             </Link>
           )}
           {data.personalInfo?.location && (
