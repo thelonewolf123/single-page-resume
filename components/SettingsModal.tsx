@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import {
   Dialog,
   DialogContent,
@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Key } from "lucide-react";
+import { useApiKey } from "@/hooks/useApiKey";
 
 interface SettingsModalProps {
   open: boolean;
@@ -19,18 +20,20 @@ interface SettingsModalProps {
 }
 
 export function SettingsModal({ open, onOpenChange }: SettingsModalProps) {
-  const [apiKey, setApiKey] = useState("");
+  const { apiKey, setApiKey, saveApiKey } = useApiKey();
 
   useEffect(() => {
-    const storedKey = localStorage.getItem("genai_api_key") || "";
-    setApiKey(storedKey);
-  }, [open]);
+    if (open) {
+      setApiKey(localStorage.getItem("genai_api_key") || "");
+    }
+  }, [open, setApiKey]);
 
-  const handleSave = () => {
-    localStorage.setItem("genai_api_key", apiKey);
+  const handleSave = useCallback(() => {
+    saveApiKey(apiKey);
+    // TODO: Replace alert with toast/snackbar if available
     alert("API key saved to local storage.");
     onOpenChange(false);
-  };
+  }, [apiKey, saveApiKey, onOpenChange]);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -53,6 +56,7 @@ export function SettingsModal({ open, onOpenChange }: SettingsModalProps) {
             onChange={(e) => setApiKey(e.target.value)}
             placeholder="Enter your Google Gemini API key"
             className="mt-2"
+            autoComplete="off"
           />
           <p className="text-xs text-muted-foreground mt-2">
             Get your API key from{" "}

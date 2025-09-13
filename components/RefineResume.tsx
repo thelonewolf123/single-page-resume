@@ -9,6 +9,7 @@ import {
 } from "./ui/dialog";
 import { Textarea } from "./ui/textarea";
 import { Wand2 } from "lucide-react";
+import { useApiKey } from "@/hooks/useApiKey";
 
 interface RefineResumeProps {
   text: string;
@@ -26,10 +27,10 @@ export function RefineResume({
   const [isRefining, setIsRefining] = useState(false);
   const [refinedText, setRefinedText] = useState(text);
   const [userPrompt, setUserPrompt] = useState("");
+  const { apiKey } = useApiKey();
 
   const handleRefine = async () => {
-    const storedKey = localStorage.getItem("genai_api_key") || "";
-    if (!storedKey.trim()) {
+    if (!apiKey.trim()) {
       alert("Please set your API key in Settings first.");
       return;
     }
@@ -44,7 +45,7 @@ export function RefineResume({
         body: JSON.stringify({
           text: refinedText,
           prompt: userPrompt,
-          apiKey: storedKey
+          apiKey
         })
       });
 

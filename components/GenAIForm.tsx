@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { Upload, Loader2, Sparkles, FileText } from "lucide-react";
 import type { ResumeData } from "@/lib/resume-schema";
+import { useApiKey } from "@/hooks/useApiKey";
 
 interface GenAIFormProps {
   open: boolean;
@@ -29,13 +30,15 @@ export function GenAIForm({
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isParsingResume, setIsParsingResume] = useState(false);
 
+  const { apiKey } = useApiKey();
+
   const handleParseResume = async () => {
     if (!selectedFile) {
       alert("Please select a resume file");
       return;
     }
-    const storedKey = localStorage.getItem("genai_api_key") || "";
-    if (!storedKey.trim()) {
+
+    if (!apiKey.trim()) {
       alert("Please set your API key in Settings first.");
       return;
     }
@@ -43,7 +46,7 @@ export function GenAIForm({
     try {
       const formData = new FormData();
       formData.append("file", selectedFile);
-      formData.append("apiKey", storedKey);
+      formData.append("apiKey", apiKey);
       const response = await fetch("/api/resume", {
         method: "POST",
         body: formData
