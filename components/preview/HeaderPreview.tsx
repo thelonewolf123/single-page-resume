@@ -28,16 +28,24 @@ export default function HeaderPreview({ data }: Props) {
         </p>
         <div className="flex flex-wrap gap-4 text-sm text-gray-600">
           {data.personalInfo?.phone && (
-            <div className="flex items-center gap-1">
+            <Link
+              href={`tel:${data.personalInfo.phone}`}
+              className="flex items-center gap-1 hover:text-blue-600 transition-colors"
+              aria-label={`Call ${data.personalInfo.phone}`}
+            >
               <Phone className="h-4 w-4" />
               {data.personalInfo.phone}
-            </div>
+            </Link>
           )}
           {data.personalInfo?.email && (
-            <div className="flex items-center gap-1">
+            <Link
+              href={`mailto:${data.personalInfo.email}`}
+              className="flex items-center gap-1 hover:text-blue-600 transition-colors"
+              aria-label={`Email ${data.personalInfo.email}`}
+            >
               <Mail className="h-4 w-4" />
               {data.personalInfo.email}
-            </div>
+            </Link>
           )}
           {data.personalInfo?.linkedin && (
             <Link
