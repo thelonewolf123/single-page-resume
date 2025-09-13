@@ -110,7 +110,9 @@ export default function ResumeBuilder() {
 
           <ResumePreview data={watchedData} onPrint={handlePrint} />
         </div>
-        <SettingsModal open={settingsOpen} onOpenChange={setSettingsOpen} />
+        <div className="print:hidden">
+          <SettingsModal open={settingsOpen} onOpenChange={setSettingsOpen} />
+        </div>
       </div>
     </div>
   );
