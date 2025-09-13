@@ -4,7 +4,7 @@ export const demoData: ResumeData = {
   personalInfo: {
     fullName: "Harish Kumar K",
     title: "Frontend Developer",
-    phone: "8778257327",
+    phone: "",
     email: "harishkumar.vellore@gmail.com",
     linkedin: "linkedin.com/in/harishkumark025",
     github: "github.com/thelonewolf123",
