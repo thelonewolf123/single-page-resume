@@ -4,7 +4,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { text, prompt, apiKey } = await req.json();
+    const {
+      text,
+      prompt,
+      apiKey = process.env.GEMINI_API_KEY
+    } = await req.json();
 
     if (!text) {
       return NextResponse.json({ error: "Text is required" }, { status: 400 });

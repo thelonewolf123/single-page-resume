@@ -38,7 +38,7 @@ export function GenAIForm({
       return;
     }
 
-    if (!apiKey.trim()) {
+    if (!apiKey.trim() && !process.env.NEXT_PUBLIC_SKIP_API_KEY) {
       alert("Please set your API key in Settings first.");
       return;
     }

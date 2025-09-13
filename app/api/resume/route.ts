@@ -6,7 +6,8 @@ export async function POST(request: Request) {
   try {
     const formData = await request.formData();
     const file = formData.get("file") as File;
-    const apiKey = formData.get("apiKey") as string;
+    const apiKey =
+      (formData.get("apiKey") as string) || process.env.GEMINI_API_KEY;
 
     if (!file || !apiKey) {
       return Response.json(
