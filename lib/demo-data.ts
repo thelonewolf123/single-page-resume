@@ -2,105 +2,114 @@ import { ResumeData } from "./resume-schema";
 
 export const demoData: ResumeData = {
   personalInfo: {
-    fullName: "BHAVESH",
-    title: "Data Scientist",
-    phone: "+91 93502 21394",
-    email: "bhavesharora127@gmail.com",
-    linkedin: "LinkedIn",
-    github: "GitHub",
-    website: "Leetcode",
-    location: "Bangalore",
+    fullName: "Harish Kumar K",
+    title: "Frontend Developer",
+    phone: "8778257327",
+    email: "harishkumar.vellore@gmail.com",
+    linkedin: "linkedin.com/in/harishkumark025",
+    github: "github.com/thelonewolf123",
+    website: "harishkumar.info",
+    location: "Vellore India",
     profileImage: ""
   },
   summary:
-    "I am a dedicated Data Scientist with extensive experience in machine learning and data analytics. My proficiency in designing AI solutions and executing targeted marketing strategies has led to significant improvements in business performance. I hold a Masters in Data Engineering from IIT Jodhpur, where I ranked second in my department. I am passionate about leveraging data-driven insights to enhance decision-making processes across various domains",
+    "Accomplished Frontend Developer at Fluid.travel, I drove a 150% increase in bookings by revamping the hotel search and booking flow. Proficient in TypeScript and AWS, I excel in performance optimization and cross-team collaboration, delivering impactful features that enhance user experience and operational efficiency.",
   experience: [
     {
-      title: "Data Scientist",
-      company: "Delight Learning",
-      location: "Bangalore, India",
-      startDate: "03/2024",
-      endDate: "Present",
+      title: "Frontend developer - SDE II",
+      company: "Fluid.travel",
+      location: "Chennai, India",
+      startDate: "11/2024",
+      endDate: "Current",
       description:
-        "An educational technology company focused on enhancing learning experiences through AI and data-driven solutions\n• Designing and developing an autonomous AI agent using LangGraph to streamline internal workflows and enhance decision-making capabilities\n• Leveraging LLMs and prompt engineering techniques to create modular, memory-enabled agents tailored to dynamic business logic\n• Integrating LangGraph with in-house APIs and data sources to build stateful, context-aware pipelines for real-time inference and action chaining"
+        "• Directed development and delivery of major features, including Static Reports and Ledger module.\n• Revamped hotel search and booking flow on web and mobile, resulting in 150% increase in bookings.\n• Shipped cross-platform capabilities for Preferred Hotels and Cirium integration across web and mobile platforms."
     },
     {
-      title: "Marketing Analyst",
-      company: "American Express",
-      location: "Gurgaon, India",
-      startDate: "11/2023",
-      endDate: "04/2024",
-      description:
-        "A global financial services company providing credit cards and payment solutions\n• Creation of Comprehensive Excel Dashboards to analyze customer churn trends, enabling data-driven decision making and proactive retention strategies\n• Developed and executed targeted marketing campaigns aimed at reducing customer inactivity and preventive cancellations, resulting in improved retention rates\n• Managed Email and SMS campaigns to notify card members about the importance of updating Pan Card and KYC information, ensuring compliance with regulatory requirements and enhancing customer data accuracy"
-    },
-    {
-      title: "Machine Learning Associate",
-      company: "Amazon",
-      location: "Gurgaon, India",
-      startDate: "11/2022",
+      title: "Fullstack developer",
+      company: "Klenty soft. inc.",
+      location: "Chennai, India",
+      startDate: "02/2023",
       endDate: "11/2023",
       description:
-        "A multinational technology company focusing on e-commerce, cloud computing, and artificial intelligence\n• Collaborated with cross-functional teams to build, validate, and deploy machine learning models that improved customer experience and operational efficiency\n• Developed and fine-tuned predictive algorithms using large-scale datasets, ensuring scalable and high-performance ML solutions\n• Utilized AWS tools and ML frameworks (e.g., SageMaker, PyTorch, Scikit-learn) to automate model training, evaluation, and deployment pipelines"
+        "• Implemented Zepkin distributed tracing to enhance performance measurement capabilities.\n• Created instant mail tracking feature, reducing latency from 15 minutes to five seconds.\n• Designed slow query tracking pipeline for identifying bottlenecks in infrastructure optimization.\n• Collaborated across teams to ensure SOC2 compliance was upheld."
+    },
+    {
+      title: "Senior Ide Engineer",
+      company: "Codedamn",
+      location: "Banglore, India",
+      startDate: "08/2022",
+      endDate: "02/2023",
+      description:
+        "• Optimized container allocation pipeline, achieving 55% reduction in operational costs.\n• Boosted productivity by implementing autocomplete and intellisense features for online IDE platform.\n• Enhanced user experience through streamlined coding tools on online IDE.\n• Collaborated with instructors to develop data structure and algorithm code execution stack.\n• Created logging infrastructure using CloudWatch for prompt identification of user issues.\n• Built internal tool to analyze logs, latency, and bottlenecks."
+    },
+    {
+      title: "Member of technical staff",
+      company: "Facilio: Data-driven Building Operations",
+      location: "Chennai, India",
+      startDate: "03/2021",
+      endDate: "07/2022",
+      description:
+        "• Developed Al parser using template parsing to process over 6,000 payment receipts, enhancing product marketability.\n• Created pivot table feature to aggregate data across modules, improving analysis capabilities.\n• Added conditional formatting and calculated fields to increase pivot table functionality.\n• Integrated parcel owner parsing from photo with Android and notification system for employee alerts."
     }
   ],
   education: [
     {
-      degree: "Masters of Technology",
-      institution: "Indian Institute of Technology, Jodhpur",
-      location: "Jodhpur",
-      startDate: "08/2024",
-      endDate: "05/2026"
-    },
-    {
-      degree: "Bachelor of Technology",
-      institution: "Dronacharya College of Engineering, Gurgaon",
-      location: "Gurgaon",
-      startDate: "08/2019",
-      endDate: "05/2023"
+      degree: "B.E",
+      institution: "Thanthai Periyar Government Institute of Technology",
+      location: "Vellore",
+      startDate: "",
+      endDate: "03/2021"
     }
   ],
   skills: [
-    "AWS",
-    "C/C++",
     "Python",
-    "PyTorch",
-    "HTML",
-    "CSS",
-    "GitHub",
+    "JavaScript",
+    "TypeScript",
+    "Java",
+    "Go",
+    "C++",
     "SQL",
-    "LangChain",
-    "LangGraph",
-    "JIRA",
-    "Git",
-    "MongoDB",
-    "Microsoft Power BI",
-    "Zoho Creator",
-    "Deluge",
-    "Postman",
-    "Tableau",
+    "AWS (EC2, S3)",
+    "Docker",
+    "Kubernetes basics",
+    "React.js",
+    "Next.js",
+    "Vue.js",
+    "TailwindCSS",
+    "HTML5",
+    "CSS3",
+    "Flutter",
+    "React Native",
+    "Progressive Web Apps",
+    "Node.js",
+    "Express.js",
+    "Flask",
+    "Django",
+    "REST APIs",
+    "GraphQL",
+    "Grafana",
+    "Prometheus",
+    "PostgreSQL",
     "MySQL",
     "MongoDB",
-    "Scrum",
-    "SQL",
-    "Tableau",
-    "TensorFlow",
-    "Zoho"
+    "SQLite",
+    "DynamoDB",
+    "Redis",
+    "Git",
+    "GitHub",
+    "Visual Studio Code"
   ],
   certifications: [
     {
-      name: "Scrum Alliance Certified: ScrumMaster (CSM)",
-      issuer: "Scrum Alliance"
-    },
-    {
-      name: "Scrum Alliance Certified: Product Owner (PO)",
-      issuer: "Scrum Alliance"
+      name: "Fiber Optics Splicing Certification",
+      issuer: "BSNL"
     }
   ],
   achievements: [
     {
-      title: "Departmental Rank: 2 IIT Jodhpur",
+      title: "First Prize in Paper Presentation",
       description:
-        "Achieved Departmental Rank 2 at IIT Jodhpur, demonstrating academic excellence in the field of Data Engineering"
+        "Won first prize for paper presentation at Government College of Engineering, Bargur"
     }
   ]
 };

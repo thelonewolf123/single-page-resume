@@ -1,12 +1,20 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Phone, Mail, Linkedin, Github, Globe, MapPin } from "lucide-react";
 import type { ResumeData } from "@/lib/resume-schema";
 
 interface Props {
   data: ResumeData;
 }
+
+const formatUrl = (url: string): string => {
+  if (!url) return "";
+  return url.startsWith("http://") || url.startsWith("https://")
+    ? url
+    : `https://${url.replace(/^\/\//, "")}`;
+};
 
 export default function HeaderPreview({ data }: Props) {
   return (
@@ -32,22 +40,37 @@ export default function HeaderPreview({ data }: Props) {
             </div>
           )}
           {data.personalInfo?.linkedin && (
-            <div className="flex items-center gap-1">
+            <Link
+              href={formatUrl(data.personalInfo.linkedin)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:text-blue-600 transition-colors"
+            >
               <Linkedin className="h-4 w-4" />
               LinkedIn
-            </div>
+            </Link>
           )}
           {data.personalInfo?.github && (
-            <div className="flex items-center gap-1">
+            <Link
+              href={formatUrl(data.personalInfo.github)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:text-blue-600 transition-colors"
+            >
               <Github className="h-4 w-4" />
               GitHub
-            </div>
+            </Link>
           )}
           {data.personalInfo?.website && (
-            <div className="flex items-center gap-1">
+            <Link
+              href={formatUrl(data.personalInfo.website)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:text-blue-600 transition-colors"
+            >
               <Globe className="h-4 w-4" />
               Website
-            </div>
+            </Link>
           )}
           {data.personalInfo?.location && (
             <div className="flex items-center gap-1">
