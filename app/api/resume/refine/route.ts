@@ -2,13 +2,21 @@ import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { generateText } from "ai";
 import { NextRequest, NextResponse } from "next/server";
 
+// system prompt builder
+function buildSystemPrompt(userInstructions?: string) {
+  return `
+You are a professional resume writer. Refine and improve the provided text while preserving its meaning. 
+Ensure clarity, strong impact, and a professional tone. 
+Correct grammar issues and make the writing compelling. 
+The final output must be a single refined version under 1000 characters, with no explanations or conversation. 
+${userInstructions ? "User instructions: " + userInstructions : ""}
+  `.trim();
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const {
-      text,
-      prompt,
-      apiKey = process.env.GEMINI_API_KEY
-    } = await req.json();
+    const { text, prompt, apiKey: clientApiKey } = await req.json();
+    const apiKey = clientApiKey || process.env.GEMINI_API_KEY;
 
     if (!text) {
       return NextResponse.json({ error: "Text is required" }, { status: 400 });
@@ -20,9 +28,7 @@ export async function POST(req: NextRequest) {
       messages: [
         {
           role: "system",
-          content: `You are a professional resume writer. Your task is to refine and improve the given text while maintaining its core meaning. Focus on clarity, impact, and professional tone. Correct any grammar issues and rephrase to make it more compelling. ${
-            prompt ? "Additional instructions: " + prompt : ""
-          }`
+          content: buildSystemPrompt(prompt)
         },
         {
           role: "user",
@@ -30,8 +36,12 @@ export async function POST(req: NextRequest) {
         }
       ]
     });
+    const content = result.content[0];
+    if (content.type === "text") {
+      return NextResponse.json({ refinedText: content.text });
+    }
 
-    return NextResponse.json({ refinedText: result.content });
+    return NextResponse.json({ refinedText: text });
   } catch (error) {
     console.error("Error refining text:", error);
     return NextResponse.json(

@@ -14,12 +14,14 @@ interface Props {
 }
 
 export default function SummaryForm({ form }: Props) {
-  const { register, setValue, getValues } = form;
+  const { register, setValue, watch } = form;
   const [refineOpen, setRefineOpen] = useState(false);
 
   const handleRefineComplete = (refinedText: string) => {
     setValue("summary", refinedText);
   };
+
+  const summary = watch("summary");
 
   return (
     <Card>
@@ -45,12 +47,14 @@ export default function SummaryForm({ form }: Props) {
           className="min-h-[100px]"
         />
 
-        <RefineResume
-          text={getValues("summary") || ""}
-          onComplete={handleRefineComplete}
-          open={refineOpen}
-          onOpenChange={setRefineOpen}
-        />
+        {refineOpen ? (
+          <RefineResume
+            text={summary}
+            onComplete={handleRefineComplete}
+            open={refineOpen}
+            onOpenChange={setRefineOpen}
+          />
+        ) : null}
       </CardContent>
     </Card>
   );
