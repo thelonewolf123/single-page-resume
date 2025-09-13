@@ -85,64 +85,62 @@ export function GenAIForm({
   };
 
   return (
-    <>
-      <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-2">
-              <Upload className="h-5 w-5" />
-              AI Resume Parser
-            </DialogTitle>
-          </DialogHeader>
-          <div className="space-y-6 py-4">
-            <div>
-              <Label htmlFor="resumeFile" className="flex items-center gap-2">
-                <FileText className="h-4 w-4" />
-                Resume File
-              </Label>
-              <Input
-                id="resumeFile"
-                type="file"
-                onChange={handleFileSelect}
-                accept=".txt,.pdf,.doc,.docx"
-                className="mt-2"
-              />
-              {selectedFile && (
-                <p className="text-sm text-muted-foreground mt-2">
-                  Selected: {selectedFile.name} (
-                  {(selectedFile.size / 1024).toFixed(1)} KB)
-                </p>
-              )}
-              <p className="text-xs text-muted-foreground mt-2">
-                Supported formats: PDF, Word documents (.doc, .docx), and text
-                files (.txt)
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2">
+            <Upload className="h-5 w-5" />
+            AI Resume Parser
+          </DialogTitle>
+        </DialogHeader>
+        <div className="space-y-6 py-4">
+          <div>
+            <Label htmlFor="resumeFile" className="flex items-center gap-2">
+              <FileText className="h-4 w-4" />
+              Resume File
+            </Label>
+            <Input
+              id="resumeFile"
+              type="file"
+              onChange={handleFileSelect}
+              accept=".txt,.pdf,.doc,.docx"
+              className="mt-2"
+            />
+            {selectedFile && (
+              <p className="text-sm text-muted-foreground mt-2">
+                Selected: {selectedFile.name} (
+                {(selectedFile.size / 1024).toFixed(1)} KB)
               </p>
-            </div>
+            )}
+            <p className="text-xs text-muted-foreground mt-2">
+              Supported formats: PDF, Word documents (.doc, .docx), and text
+              files (.txt)
+            </p>
           </div>
-          <DialogFooter className="pt-6">
-            <Button onClick={() => onOpenChange(false)} variant="outline">
-              Cancel
-            </Button>
-            <Button
-              onClick={handleParseResume}
-              disabled={isParsingResume || !selectedFile}
-              className="gap-2"
-            >
-              {isParsingResume ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                  Parsing Resume...
-                </>
-              ) : (
-                <>
-                  <Sparkles className="h-4 w-4" />
-                  Parse Resume with AI
-                </>
-              )}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </>
+        </div>
+        <DialogFooter className="pt-6">
+          <Button onClick={() => onOpenChange(false)} variant="outline">
+            Cancel
+          </Button>
+          <Button
+            onClick={handleParseResume}
+            disabled={isParsingResume || !selectedFile}
+            className="gap-2"
+          >
+            {isParsingResume ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Parsing Resume...
+              </>
+            ) : (
+              <>
+                <Sparkles className="h-4 w-4" />
+                Parse Resume with AI
+              </>
+            )}
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 }

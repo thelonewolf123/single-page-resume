@@ -77,22 +77,24 @@ export default function ResumeBuilder() {
   return (
     <div className="min-h-screen bg-background p-4">
       <div className="mx-auto max-w-7xl">
-        {/* Settings Button - top right corner */}
-        <div className="flex justify-end mb-2 print:hidden">
+        {/* Simple Header */}
+        <div className="flex justify-between items-center mb-8 print:hidden">
+          <div>
+            <h1 className="text-3xl font-bold text-foreground">
+              Resume Builder
+            </h1>
+            <p className="text-muted-foreground text-base">
+              Create your professional resume with live preview
+            </p>
+          </div>
           <Button
             variant="ghost"
             className="gap-2"
             onClick={() => setSettingsOpen(true)}
           >
             <Key className="h-4 w-4" />
-            API Key Settings
+            API Key
           </Button>
-        </div>
-        <div className="mb-8 text-center print:hidden">
-          <h1 className="text-3xl font-bold text-foreground">Resume Builder</h1>
-          <p className="text-muted-foreground">
-            Create your professional resume with live preview
-          </p>
         </div>
 
         <GenAIForm

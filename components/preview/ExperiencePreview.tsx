@@ -12,51 +12,39 @@ export default function ExperiencePreview({ data }: Props) {
 
   return (
     <div>
-      <h2 className="text-2xl font-extrabold text-gray-900 mb-6 border-b pb-2 tracking-wide">
-        Experience
+      <h2 className="text-xl font-bold text-black mb-3 border-b-2 border-black pb-1">
+        EXPERIENCE
       </h2>
-      <div className="space-y-6">
+      <div className="space-y-4">
         {data.experience.map(
           (exp, index) =>
             (exp.title || exp.company) && (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-sm border border-gray-200 p-5 transition hover:shadow-md"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                  <div>
-                    <h3 className="font-semibold text-lg text-gray-800 leading-tight">
-                      {exp.title}
-                    </h3>
-                    <p className="text-blue-700 font-medium text-base mt-0.5">
-                      {exp.company}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-6 text-sm text-gray-500 mt-2 sm:mt-0">
-                    {(exp.startDate || exp.endDate) && (
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
-                        <span>
-                          {exp.startDate}
-                          {exp.startDate && exp.endDate && " - "}
-                          {exp.endDate}
-                        </span>
-                      </div>
-                    )}
-                    {exp.location && (
-                      <div className="flex items-center gap-1">
-                        <MapPin className="h-4 w-4" />
-                        <span>{exp.location}</span>
-                      </div>
-                    )}
-                  </div>
+              <div key={index}>
+                <h3 className="font-bold text-black">{exp.title}</h3>
+                <p className="text-blue-600 font-medium">{exp.company}</p>
+                <div className="flex items-center gap-4 text-sm text-gray-600 mb-2">
+                  {(exp.startDate || exp.endDate) && (
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-3 w-3" />
+                      {exp.startDate} {exp.startDate && exp.endDate && "- "}{" "}
+                      {exp.endDate}
+                    </div>
+                  )}
+                  {exp.location && (
+                    <div className="flex items-center gap-1">
+                      <MapPin className="h-3 w-3" />
+                      {exp.location}
+                    </div>
+                  )}
                 </div>
                 {exp.description && (
-                  <ul className="list-disc pl-5 text-sm text-gray-700 space-y-1 mt-2">
+                  <div className="text-sm text-gray-700">
                     {exp.description.split("\n").map((line, i) => (
-                      <li key={i}>{line.replace(/^•\s*/, "")}</li>
+                      <p key={i} className="mb-1">
+                        {line.startsWith("•") ? line : `• ${line}`}
+                      </p>
                     ))}
-                  </ul>
+                  </div>
                 )}
               </div>
             )
